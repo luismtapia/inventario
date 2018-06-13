@@ -15,16 +15,13 @@ public class SQL {
     private final String usuario = "fernanda";
     private final String contraseña = "123";
     private final String dbnombre = "FERNANDA";
-    
+
     public void Conectar(){
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");//CARGA EL DRIVER
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");        //CARGA EL DRIVER
             String connectionUrl = "jdbc:sqlserver://TaRo:1433;databaseName=FERNANDA";
             Conexion = DriverManager.getConnection(connectionUrl,usuario,contraseña);
-            
-            //Conexion = DriverManager.getConnection(connectionUrl,usuario,contraseña);
-            //Conexion = DriverManager.getConnection(connectionUrl,usuariogerente,contraseña);
-            System.out.print("Conectado. INICIO");
+            System.out.print("Conectado. ");
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
         }
         catch (ClassNotFoundException | SQLException ex){
@@ -32,7 +29,7 @@ public class SQL {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void closeConnection() {
         try {
             Conexion.close();
@@ -41,5 +38,5 @@ public class SQL {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }
