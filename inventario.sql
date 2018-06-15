@@ -38,7 +38,7 @@ create table ventas(codigo varchar (5),
 
 
 
-
+--que paso
 
 
 
