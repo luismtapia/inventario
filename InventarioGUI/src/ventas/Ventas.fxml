@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?language JavaScript?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.collections.FXCollections?>
+
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventas.VentasController">
+    <style>
+        -fx-padding: 0;
+        -fx-border-style: solid inside;
+        -fx-border-width: 2;
+        -fx-border-insets: 5;
+        -fx-border-radius: 5;
+        -fx-background-radius: 0;
+        -fx-border-color: #D4AF37;
+        -fx-background-color: #000000;
+        -fx-text-fill: #D4AF37;
+    </style>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER">
+            <style> -fx-background-color: #D4AF37; </style><Label text="VENTAS"></Label> 
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="80" alignment="BASELINE_LEFT" >
+            <VBox spacing="40" alignment="BASELINE_LEFT" >
+                <HBox spacing="30" >
+                    <TextField fx:id="bandera" prefHeight="400" /> 
+                    <Button onAction="#handleBotones" text="buscar" fx:id="btn_buscar" alignment="BASELINE_CENTER" ><style> -fx-background-color: transparent; </style></Button>
+                </HBox> 
+                
+                <Label fx:id="lbl1" text="Codigo: " prefWidth="200" />
+                <Label fx:id="lbl2" text="Nombre: " prefWidth="200" />
+                <Label fx:id="lbl3" text="Precio: " prefWidth="200" />
+                <Label fx:id="lbl4" text="Cantidad:" prefWidth="200" />
+                <Label fx:id="lbl9" text="Existencia: " prefWidth="200" />
+                <Label fx:id="lbl10" text="Descuento:" prefWidth="200" />
+                <Label fx:id="lbl11" text="Ganancia:" prefWidth="200" />
+
+                <style>
+                    -fx-border-style: solid inside;
+                    -fx-border-width: 2;
+                    -fx-border-insets: 5;
+                    -fx-border-radius: 5;
+                    -fx-border-color: #D4AF37;
+                    -fx-background-color: #000000;
+                </style>
+                <padding><Insets top="10" right="50" bottom="10" left="10"/></padding>
+            </VBox>
+            
+            <HBox>
+                <Label fx:id="lbl8" text="Cliente: "/>
+                <TextField fx:id="cliente"  prefWidth="200" />
+            </HBox>
+            
+            <VBox>
+                <HBox>
+                    <Label fx:id="lbl5" text="articulo"/>
+                    <Label fx:id="lbl6" text="descripción" prefWidth="200" />
+                    <Label fx:id="lbl7" text="precio"/>
+                </HBox>
+                <ListView fx:id="lista1" prefWidth="400" prefHeight="400" >
+                </ListView>
+            </VBox>
+                
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="20" alignment="BASELINE_CENTER" >
+        <fx:define>
+            <ToggleGroup fx:id="myToggleGroup"/>
+        </fx:define>
+        <RadioButton text="Pagado" toggleGroup="$myToggleGroup"/>
+        <RadioButton text="Por Cobrar" toggleGroup="$myToggleGroup"/>
+    </HBox>
+    </children>
+    
+</VBox>

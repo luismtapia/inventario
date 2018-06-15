@@ -1,5 +1,6 @@
-package inicio;
+package ventas;
 
+import productos.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -15,17 +16,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 
-public class InicioController implements Initializable{
+public class VentasController implements Initializable{
+    @FXML
+    private TextField bandera,cliente;
+    @FXML
+    private Button btn_buscar;
+    @FXML
+    private Label lbl1,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,lbl8;
+    @FXML
+    private ListView lista1;
     
-    @FXML
-    private TextField cantidad;
-    @FXML
-    private Button btn_ver_tallas,btn_agregar_a_ticket,btn_quitar_de_ticket,btn_cancelar,btn_cobrar;
-    @FXML
-    private Label lbl1,lbl2,lbl3,lbl4;
-    @FXML
-    private Label lbl_total_invertido,lbl_ganancia_esperada,lbl_total;
     @FXML
     private void handleBotones(ActionEvent event) throws SQLException{
 //        if(event.getSource() == btn_depto_1){
@@ -36,25 +38,24 @@ public class InicioController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        color(Color.web("#D4AF37"));
+        //color(Color.web("#D4AF37"));
         //imagenes();
-//        nombre_empleado.setPromptText("Nombre del empleado");
-//        direccion_empleado.setPromptText("Direccion del Empleado");
+        bandera.setPromptText("Producto codigo/descripcion");
+        cliente.setPromptText("Nombre del cliente");
     }
     
     
     
     
     private void color(Color color){
-        btn_agregar_a_ticket.setTextFill(color);
-        btn_ver_tallas.setTextFill(color);
-        btn_quitar_de_ticket.setTextFill(color);
-        btn_cancelar.setTextFill(color);
-        btn_cobrar.setTextFill(color);
         lbl1.setTextFill(color);
         lbl2.setTextFill(color);
         lbl3.setTextFill(color);
         lbl4.setTextFill(color);
+        lbl5.setTextFill(color);
+        lbl6.setTextFill(color);
+        lbl7.setTextFill(color);
+        lbl8.setTextFill(color);
     }
     
    

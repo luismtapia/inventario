@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?language JavaScript?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="productos.ProductosController">
+    <style>
+        -fx-padding: 0;
+        -fx-border-style: solid inside;
+        -fx-border-width: 2;
+        -fx-border-insets: 5;
+        -fx-border-radius: 5;
+        -fx-border-color: #D4AF37;
+        -fx-background-color: #000000;
+    </style>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER">
+            <style> -fx-background-color: #D4AF37; </style><Label text="Productos"></Label> 
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="60" alignment="BASELINE_LEFT" >
+            <style>
+                -fx-padding: 10;
+                -fx-border-style: solid inside;
+                -fx-border-width: 2;
+                -fx-border-insets: 5;
+                -fx-border-radius: 5;
+                -fx-border-color: #D4AF37;
+                -fx-background-color: #000000;
+            </style>
+            <Label fx:id="lbl4" text="Total a pagar: "/>
+            <padding><Insets top="10" right="50" bottom="10" left="10"/></padding>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="10" alignment="CENTER" >
+            <Button onAction="#handleBotones" text="ROPA" fx:id="btn_depto_1" alignment="BASELINE_CENTER" >
+            <style> -fx-background-color: transparent; </style>
+            </Button>
+            <Button onAction="#handleBotones" text="ACCESORIOS" fx:id="btn_depto_2" alignment="BASELINE_CENTER" >
+            <style> -fx-background-color: transparent; </style>
+            </Button>
+            <Label fx:id="lbl_total_a_pagar" text="Total a pagar: "/>
+            <Label fx:id="lbl1" text="00000.00" prefWidth="200" />
+            <Label fx:id="lbl2" text="Cliente: "/>
+            <Label fx:id="lbl3" text="Departamento" />
+        </HBox>
+    </children> 
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER" >
+            <style>
+                -fx-padding: 10;
+                -fx-border-style: solid inside;
+                -fx-border-width: 2;
+                -fx-border-insets: 5;
+                -fx-border-radius: 5;
+                -fx-border-color: #D4AF37;
+                -fx-background-color: #000000;
+            </style>
+            <Button onAction="#handleBotones" text="GUARDAR" fx:id="btn_guardar" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="CANCELAR" fx:id="btn_cancelar"><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+</VBox>

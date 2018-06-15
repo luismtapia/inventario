@@ -16,26 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.control.ComboBox;
 
-public class VentasController implements Initializable{
-    
-    int no_empleado_anterior;
-    
+public class ProductosController implements Initializable{
     @FXML
-    private TextField cantidad;
-    @FXML
-    private Button btn_depto_1,btn_depto_2,btn_ver_tallas,btn_agregar_a_ticket,btn_quitar_de_ticket,btn_cancelar,btn_cobrar;
+    private Button btn_guardar,btn_cancelar;
     @FXML
     private Label lbl1,lbl2,lbl3,lbl4,lbl_total_a_pagar;
     @FXML
-    private ComboBox cmb_cliente;
-    @FXML
-    private ListView lista1,lista2,lista3;
-    @FXML
     private void handleBotones(ActionEvent event) throws SQLException{
-        if(event.getSource() == btn_depto_1){
-            lbl3.setText("ROPA");
-            //llenarProductos();
-        }
+        
     }
     
     @Override
@@ -50,13 +38,8 @@ public class VentasController implements Initializable{
     
     
     private void color(Color color){
-        btn_depto_1.setTextFill(color);
-        btn_depto_2.setTextFill(color);
-        btn_agregar_a_ticket.setTextFill(color);
-        btn_ver_tallas.setTextFill(color);
-        btn_quitar_de_ticket.setTextFill(color);
         btn_cancelar.setTextFill(color);
-        btn_cobrar.setTextFill(color);
+        btn_guardar.setTextFill(color);
         lbl1.setTextFill(color);
         lbl2.setTextFill(color);
         lbl3.setTextFill(color);
@@ -67,10 +50,10 @@ public class VentasController implements Initializable{
    
     
     private void imagenes(){
-        btn_depto_1.setGraphic(new ImageView(new Image("iconos/ropa.png")));
-        btn_depto_1.setContentDisplay(ContentDisplay.BOTTOM);
-        btn_depto_2.setGraphic(new ImageView(new Image("iconos/accesorios.png")));
-        btn_depto_2.setContentDisplay(ContentDisplay.BOTTOM);
+//        btn_depto_1.setGraphic(new ImageView(new Image("iconos/ropa.png")));
+//        btn_depto_1.setContentDisplay(ContentDisplay.BOTTOM);
+//        btn_depto_2.setGraphic(new ImageView(new Image("iconos/accesorios.png")));
+//        btn_depto_2.setContentDisplay(ContentDisplay.BOTTOM);
     }
     
 }
