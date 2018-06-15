@@ -24,7 +24,7 @@
     </children>
     
     <children>
-        <HBox spacing="60" alignment="BASELINE_LEFT" >
+        <HBox spacing="60" alignment="CENTER" >
             <style>
                 -fx-padding: 10;
                 -fx-border-style: solid inside;
@@ -34,8 +34,7 @@
                 -fx-border-color: #D4AF37;
                 -fx-background-color: #000000;
             </style>
-            <Label fx:id="lbl4" text="Total a pagar: "/>
-            <padding><Insets top="10" right="50" bottom="10" left="10"/></padding>
+            <Label fx:id="lbl4" text=": "/>
         </HBox>
     </children>
     
