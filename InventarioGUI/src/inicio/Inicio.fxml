@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inicio.InicioController">
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="50" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inicio.InicioController">
     <style>
         -fx-border-style: solid inside;
         -fx-border-width: 2;
@@ -19,17 +19,17 @@
     
     <children>
         <HBox spacing="10" alignment="BASELINE_CENTER">
-            <style> -fx-background-color: #D4AF37; </style><Label text="MI TIENDA"></Label> 
+            <style> -fx-background-color: #D4AF37; -fx-font-size: 20pt; </style><Label text="MI TIENDA"></Label> 
         </HBox>
     </children>
     
     <children>
         <HBox spacing="30" alignment="BASELINE_LEFT" >
             
-            <Label fx:id="lbl1" text="Total invertido: " prefWidth="150" />
+            <Label fx:id="lbl1" text="Total invertido: " prefWidth="120" />
             <Label fx:id="lbl_total_invertido" text="00000.00" prefWidth="200" />
             
-            <Label fx:id="lbl2" text="Ganancia Esperada: " prefWidth="150" />
+            <Label fx:id="lbl2" text="Ganancia Esperada: " prefWidth="200" />
             <Label fx:id="lbl_ganancia_esperada" text="00000.00" prefWidth="200" />
             
             <Label fx:id="lbl3" text="Total" prefWidth="150" />
@@ -52,13 +52,13 @@
     <children>
         <HBox spacing="60" alignment="BASELINE_LEFT" >
             
-            <Label fx:id="lbl4" text="Activo fijo: "/>
+            <Label fx:id="lbl4" text="Activo fijo:" prefWidth="120"/>
             <Label fx:id="lbl_activo_fijo" text="00000.00" prefWidth="200" />
             
-            <Label fx:id="lbl5" text="Efectivo: " />
+            <Label fx:id="lbl5" text="Efectivo:" prefWidth="200" />
             <Label fx:id="lbl_efectivo"  text="00000.00" prefWidth="200" />
             
-            <Label fx:id="lbl6" text="Utilidades Retenidas: "/>
+            <Label fx:id="lbl6" text="Utilidades Retenidas:" prefWidth="200" />
             <Label fx:id="lbl_utilidades_retenidas" text="00000.00" prefWidth="200" />
             
             <style>
@@ -80,12 +80,9 @@
         <HBox spacing="10" alignment="BASELINE_CENTER" >
             <Label fx:id="lbl7" text="Hacer un retiro: "/>
             <TextField fx:id="cantidad" prefWidth="200" />
-            <Button onAction="#handleBotones" text="VER TALLAS" fx:id="btn_ver_tallas" ><style> -fx-background-color: transparent; </style></Button>
-            <Button onAction="#handleBotones" text="AGREGAR A TICKET" fx:id="btn_agregar_a_ticket"><style> -fx-background-color: transparent; </style></Button>
-            <Button onAction="#handleBotones" text="QUITAR DE TICKET" fx:id="btn_quitar_de_ticket"><style> -fx-background-color: transparent; </style></Button>
-            <Button onAction="#handleBotones" text="CANCELAR" fx:id="btn_cancelar"><style> -fx-background-color: transparent; </style></Button>
-            <Button onAction="#handleBotones" text="COBRAR" fx:id="btn_cobrar"><style> -fx-background-color: transparent; </style></Button>
-        
+            <Button onAction="#handleBotones" text="Retirar" fx:id="btn_ver_tallas" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="Depositar" fx:id="btn_agregar_a_ticket"><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="CANCELAR" fx:id="btn_cancelar"><style> -fx-background-color: transparent; </style></Button>        
         <style>
                 -fx-padding: 10;
                 -fx-border-style: solid inside;
