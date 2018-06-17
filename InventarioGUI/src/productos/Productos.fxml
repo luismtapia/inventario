@@ -34,29 +34,34 @@
                 -fx-border-color: #D4AF37;
                 -fx-background-color: #000000;
             </style>
-            <Label fx:id="lbl4" text=": "/>
+            <Label fx:id="lbl4" text="Insertar datos "/>
         </HBox>
     </children>
     
     <children>
-        <HBox spacing="10" alignment="CENTER" >
-            <Button onAction="#handleBotones" text="ROPA" fx:id="btn_depto_1" alignment="BASELINE_CENTER" >
-            <style> -fx-background-color: transparent; </style>
-            </Button>
-            <Button onAction="#handleBotones" text="ACCESORIOS" fx:id="btn_depto_2" alignment="BASELINE_CENTER" >
-            <style> -fx-background-color: transparent; </style>
-            </Button>
-            <Label fx:id="lbl_total_a_pagar" text="Total a pagar: "/>
-            <Label fx:id="lbl1" text="00000.00" prefWidth="200" />
-            <Label fx:id="lbl2" text="Cliente: "/>
-            <Label fx:id="lbl3" text="Departamento" />
-        </HBox>
+        <VBox spacing="10" alignment="CENTER" >
+            <GridPane alignment="BASELINE_CENTER"  AnchorPane.topAnchor="30" AnchorPane.leftAnchor="50"  AnchorPane.rightAnchor="5" AnchorPane.bottomAnchor="15" hgap="10" vgap="10"  prefWidth="400" prefHeight="600">
+                <Label fx:id="lbl1" text="Codigo:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="codigo" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="lbl2" text="Nombre:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="nombre" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="lbl3" text="Descripción:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="descripcion" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label fx:id="lbl5" text="Precio de compra:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="precio_compra" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Label fx:id="lbl6" text="Precio de venta:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="precio_venta" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <Label fx:id="lbl7" text="Existencia:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="existencia" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            </GridPane>
+            
+        </VBox>
     </children> 
     
     <children>
         <HBox spacing="10" alignment="BASELINE_CENTER" >
             <style>
-                -fx-padding: 10;
+                -fx-padding: 0;
                 -fx-border-style: solid inside;
                 -fx-border-width: 2;
                 -fx-border-insets: 5;

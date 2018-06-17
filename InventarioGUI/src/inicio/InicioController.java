@@ -55,6 +55,9 @@ public class InicioController implements Initializable{
         lbl2.setTextFill(color);
         lbl3.setTextFill(color);
         lbl4.setTextFill(color);
+        lbl_total_invertido.setTextFill(color);
+        lbl_ganancia_esperada.setTextFill(color);
+        lbl_total.setTextFill(color);
     }
     
    

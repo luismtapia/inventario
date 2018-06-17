@@ -24,15 +24,15 @@
     </children>
     
     <children>
-        <HBox spacing="60" alignment="BASELINE_LEFT" >
+        <HBox spacing="30" alignment="BASELINE_LEFT" >
             
-            <Label fx:id="lbl1" text="Total invertido: "/>
+            <Label fx:id="lbl1" text="Total invertido: " prefWidth="150" />
             <Label fx:id="lbl_total_invertido" text="00000.00" prefWidth="200" />
             
-            <Label fx:id="lbl2" text="Ganancia Esperada: "/>
+            <Label fx:id="lbl2" text="Ganancia Esperada: " prefWidth="150" />
             <Label fx:id="lbl_ganancia_esperada" text="00000.00" prefWidth="200" />
             
-            <Label fx:id="lbl3" text="Total" />
+            <Label fx:id="lbl3" text="Total" prefWidth="150" />
             <Label fx:id="lbl_total" text="00000.00" prefWidth="200" />
             
             <style>
