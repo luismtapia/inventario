@@ -7,30 +7,35 @@ create table productos(codigo varchar(15) not null,
 			precio_compra money,
 			precio_venta money,
 			existencia int,
+			total_invertido money,
+			ganancia_esperada money,
 			constraint PRODUCTOSPK primary key (codigo));
 --drop table productos
+
 create table clientes(nombre_cliente varchar (50) not null,
 			constraint CLIENTESPK primary key (nombre_cliente));
 
-create table apartados(codigo varchar(5),
-			nombre_cliente varchar (50),
-			fecha_apartado date,
-            fecha_liquidacion date,
-			precio money,
-			importe money,
-			constraint APARTADOSPK primary key (codigo,nombre_cliente),
-			constraint APARTADOSFK1 foreign key (codigo) references productos (codigo),
-			constraint APARTADOSFK2 foreign key (nombre_cliente) references clientes (nombre_cliente));
+create table apartados(codigo varchar(15),
+					nombre_cliente varchar (50),
+					fecha_apartado date,
+					fecha_liquidacion date,
+					precio money,
+					importe money,
+					constraint APARTADOSPK primary key (codigo,nombre_cliente),
+					constraint APARTADOSFK1 foreign key (codigo) references productos (codigo),
+					constraint APARTADOSFK2 foreign key (nombre_cliente) references clientes (nombre_cliente));
 
-create table venta_es_de_producto(no_ticket int,
-								codigo varchar(5));
+create table venta_es_de_producto(no_ticket int identity (1,1),
+								codigo varchar(15),
+								cantidad int,
+								precio_venta money,
+								constraint TICKETSPK primary key (no_ticket,codigo));
 
-create table ventas(codigo varchar (5),
-					cantidad int,
-					fecha_venta date,
-					precio_venta money,
+create table ventas(no_ticket int identity (1,1),
+					fecha_venta date,--datetime
+					--cliente
 					total_a_pagar money,
-                    constraint VENTASPK primary key (codigo));
+                    constraint VENTASPK primary key (no_ticket));
 
 
 create table activos (numero int not null,

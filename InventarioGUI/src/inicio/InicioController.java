@@ -2,6 +2,7 @@ package inicio;
 
 import inventariogui.SQL_Consultar;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class InicioController implements Initializable{
         color(Color.web("#D4AF37"));
         fontSize("-fx-font-size: 13pt");
         //imagenes();
-        //recuperarDATOS();
+        recuperarDATOS();
         cantidad.setPromptText("$ Ingrese monto");
         operaciones();
     }
@@ -89,9 +90,20 @@ public class InicioController implements Initializable{
     
     private void recuperarDATOS(){
         try {
-            con_sql.get_SQL("select * from productos where codigo = ");//sumas
-        } catch (Exception e) {System.out.println(""+e);
-        }
+            ResultSet rs;
+            String total_invertido="",total_ganancia="";
+            
+            rs = con_sql.get_SQL("select sum(total_invertido) total from productos");
+            while(rs.next()){
+                total_invertido = rs.getString("total");}
+            lbl_total_invertido.setText(""+Double.parseDouble(total_invertido));
+            
+            rs = con_sql.get_SQL("select sum(ganancia_esperada) total from productos");
+            while(rs.next()){
+                total_ganancia = rs.getString("total");}
+            lbl_ganancia_esperada.setText(""+Double.parseDouble(total_ganancia));
+            
+        } catch (SQLException | NumberFormatException e) {System.out.println(""+e);}
     }
     
     private void operaciones(){

@@ -81,7 +81,7 @@ public class InventarioGUI extends Application {
         btn_inicio.setPrefSize(150, 30);
         //btnagregar_productos.setContentDisplay(ContentDisplay.TOP);
         btn_inicio.setTextFill(Color.web("#D4AF37"));
-        btn_inicio.setStyle("-fx-padding: 10 20 20 20;"
+        btn_inicio.setStyle("-fx-padding: 10 20 10 20;"
                 + "-fx-background-color: linear-gradient(#262626,#000000);"
                 + "-fx-font-size: 15pt;"
                 + "-fx-border-color: #D4AF37;"
@@ -126,7 +126,10 @@ public class InventarioGUI extends Application {
     
 
     private void inicializaBaseDatos(){
+        //probar coneccion
         conn.Conectar();
+        //mensaje de alerta
+        //conn.closeConnection();
     }
 
     public static void main(String[] args) {

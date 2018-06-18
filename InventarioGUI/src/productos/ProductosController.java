@@ -1,5 +1,6 @@
 package productos;
 
+import inventariogui.SQL;
 import inventariogui.SQL_Crear;
 import java.net.URL;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
 public class ProductosController implements Initializable{
+    private final SQL conn=new SQL();
     SQL_Crear con_sql = new SQL_Crear();
     
     @FXML private Button btn_guardar,btn_cancelar;
@@ -33,6 +35,7 @@ public class ProductosController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        conn.Conectar();
         color(Color.web("#D4AF37"));
         //imagenes();
         codigo.setPromptText("Codigo del producto");
@@ -99,7 +102,8 @@ public class ProductosController implements Initializable{
             //msg.setGraphic(new ImageView(new Image("iconos/area.png")));
             msg.show();
         }else{
-            
+            guardar();
+            limpieza();
         }
     }
     

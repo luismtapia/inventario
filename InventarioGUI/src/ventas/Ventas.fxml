@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.collections.FXCollections?>
 
-<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventas.VentasController">
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventas.VentasController">
     <style>
         -fx-padding: 0;
         -fx-border-style: solid inside;
@@ -22,63 +22,95 @@
     
     <children>
         <HBox spacing="10" alignment="BASELINE_CENTER">
-            <style> -fx-background-color: #D4AF37; </style><Label text="VENTAS"></Label> 
+            <style> -fx-background-color: #D4AF37; -fx-font-size: 20pt; </style><Label text="VENTAS"></Label> 
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="80" alignment="BASELINE_CENTER" >
+            <HBox spacing="20" alignment="BASELINE_CENTER" >
+                <TextField onKeyReleased="#handleKeyPressed"  fx:id="bandera" prefHeight="460" /> 
+                <Button onAction="#handleBotones" text="buscar" fx:id="btn_buscar" alignment="BASELINE_CENTER" ><style> -fx-background-color: transparent; -fx-font-size: 13pt;</style></Button>
+                <ComboBox fx:id="cmb_encontrados" prefWidth="300">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                        
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label fx:id="lbl_folio" text="0" /> 
+            </HBox>
+        
         </HBox>
     </children>
     
     <children>
         <HBox spacing="80" alignment="BASELINE_LEFT" >
-            <VBox spacing="40" alignment="BASELINE_LEFT" >
-                <HBox spacing="30" >
-                    <TextField fx:id="bandera" prefHeight="400" /> 
-                    <Button onAction="#handleBotones" text="buscar" fx:id="btn_buscar" alignment="BASELINE_CENTER" ><style> -fx-background-color: transparent; </style></Button>
-                </HBox> 
-                
-                <Label fx:id="lbl1" text="Codigo: " prefWidth="200" />
-                <Label fx:id="lbl2" text="Nombre: " prefWidth="200" />
-                <Label fx:id="lbl3" text="Precio: " prefWidth="200" />
-                <Label fx:id="lbl4" text="Cantidad:" prefWidth="200" />
-                <Label fx:id="lbl9" text="Existencia: " prefWidth="200" />
-                <Label fx:id="lbl10" text="Descuento:" prefWidth="200" />
-                <Label fx:id="lbl11" text="Ganancia:" prefWidth="200" />
-
+            <GridPane alignment="BASELINE_CENTER"  AnchorPane.topAnchor="30" AnchorPane.leftAnchor="50"  AnchorPane.rightAnchor="5" AnchorPane.bottomAnchor="15" hgap="10" vgap="10"  prefWidth="400" prefHeight="600">  
+                <Label fx:id="lbl1" text="Codigo: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="lbl_codigo" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="lbl2" text="Nombre: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="lbl_nombre" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="lbl3" text="Precio: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label fx:id="lbl_precio" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="lbl4" text="Cantidad:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <Label fx:id="lbl_cantidad" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label fx:id="lbl9" text="Existencia: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <Label fx:id="lbl_existencia" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label fx:id="lbl10" text="Descuento:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <Label fx:id="lbl_descuento" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Label fx:id="lbl11" text="Ganancia:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                    <Label fx:id="lbl_ganancia" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                 <style>
+                    -fx-padding: 10;
                     -fx-border-style: solid inside;
                     -fx-border-width: 2;
                     -fx-border-insets: 5;
                     -fx-border-radius: 5;
                     -fx-border-color: #D4AF37;
-                    -fx-background-color: #000000;
                 </style>
-                <padding><Insets top="10" right="50" bottom="10" left="10"/></padding>
-            </VBox>
+            </GridPane>
             
-            <HBox>
+            <HBox >
                 <Label fx:id="lbl8" text="Cliente: "/>
                 <TextField fx:id="cliente"  prefWidth="200" />
             </HBox>
             
-            <VBox>
-                <HBox>
+            <VBox >
+                <HBox spacing="20" >
                     <Label fx:id="lbl5" text="articulo"/>
-                    <Label fx:id="lbl6" text="descripción" prefWidth="200" />
-                    <Label fx:id="lbl7" text="precio"/>
+                    <Label fx:id="lbl6" text="descripción" />
+                    <Label fx:id="lbl7" text="precio $"/>
+                    <Label fx:id="lbl12" text="subtotal $"/>
                 </HBox>
                 <ListView fx:id="lista1" prefWidth="400" prefHeight="400" >
                 </ListView>
             </VBox>
-                
+        
+        <style>
+            -fx-padding: 20; 
+            -fx-border-padding: 0 0 0 0;
+            -fx-border-width: 2;
+            -fx-border-insets: 0;
+            -fx-border-color: #D4AF37;
+        </style>
         </HBox>
     </children>
     
     <children>
-        <HBox spacing="20" alignment="BASELINE_CENTER" >
-        <fx:define>
-            <ToggleGroup fx:id="myToggleGroup"/>
-        </fx:define>
-        <RadioButton text="Pagado" toggleGroup="$myToggleGroup"/>
-        <RadioButton text="Por Cobrar" toggleGroup="$myToggleGroup"/>
-    </HBox>
+        <HBox spacing="60" alignment="BASELINE_CENTER" >
+            <Button onAction="#handleBotones" text="MARCAR" fx:id="btn_agregar" alignment="BASELINE_CENTER" ><style> -fx-background-color: transparent; -fx-font-size: 11pt;</style></Button>
+            
+            <fx:define>
+                <ToggleGroup fx:id="myToggleGroup"/>
+            </fx:define>
+                <RadioButton text="Pagado" toggleGroup="$myToggleGroup"/>
+                <RadioButton text="Por Cobrar" toggleGroup="$myToggleGroup"/>
+        <style>
+            -fx-padding: 40;
+            -fx-background-color: #000000;
+        </style>
+        </HBox>
     </children>
     
 </VBox>

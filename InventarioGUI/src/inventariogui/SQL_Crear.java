@@ -12,7 +12,7 @@ import productos.Producto;
 public class SQL_Crear {
     public Boolean insertarProducto(Producto nuevo){
         try{
-            String query="INSERT INTO productos (codigo, nombre, descripcion,precio_compra,precio_venta,existencia) values(?, ?, ?, ?, ?, ?)";
+            String query="INSERT INTO productos (codigo, nombre, descripcion,precio_compra,precio_venta,existencia,total_invertido,ganancia_esperada) values(?, ?, ?, ?, ?, ?, null, null)";
             PreparedStatement st=Conexion.prepareStatement(query);
             st.setString(1, nuevo.getCodigo());
             st.setString(2, nuevo.getNombre());
