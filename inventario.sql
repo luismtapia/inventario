@@ -37,7 +37,7 @@ create table ventas(codigo varchar (5),
 create table activos (numero int not null,
 		      nombre varchar(30),
 		      descripcion varchar(200)
-		      );
+		      constraint ACTIVOSPK primary key (numero,nombre));
 						
 
 
