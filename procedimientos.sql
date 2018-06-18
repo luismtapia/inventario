@@ -33,5 +33,4 @@ create trigger totales
 create table resumen(total_invertido money,
 					ganancia_esperada money,
 					activo_fijo money,
-					efectivo money
-					);
+					efectivo money)

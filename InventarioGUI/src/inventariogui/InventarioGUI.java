@@ -41,7 +41,7 @@ public class InventarioGUI extends Application {
     private void initGUI(){
         StackPane root = new StackPane();
         Scene scene;
-        //inicializaBaseDatos();
+        inicializaBaseDatos();
 
         root.setStyle("-fx-background-color: #000000;");
         root.getChildren().addAll(generaEncabezado("Luis"));
@@ -53,7 +53,6 @@ public class InventarioGUI extends Application {
         estacionPrimaria.show();
     }
 
-    //ENCABEZADO
     public VBox generaEncabezado(String usuario){
         VBox vertical_inicio = new VBox();
         vertical_inicio.setPadding(new Insets(20, 30, 10, 30));
@@ -129,7 +128,6 @@ public class InventarioGUI extends Application {
     private void inicializaBaseDatos(){
         conn.Conectar();
     }
-
 
     public static void main(String[] args) {
         launch(args);
