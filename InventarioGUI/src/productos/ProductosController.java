@@ -99,7 +99,8 @@ public class ProductosController implements Initializable{
             //msg.setGraphic(new ImageView(new Image("iconos/area.png")));
             msg.show();
         }else{
-            
+            //guardar();
+            //actualizar inicio
         }
     }
     

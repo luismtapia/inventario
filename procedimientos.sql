@@ -1,5 +1,12 @@
 use inventario;
 
+create trigger llenar_datos
+		on productos for insert
+	as
+	begin
+		select sum(precio_compra) from productos;
+	end
+
 create trigger apartando
 							on apartados for insert
 as
@@ -11,11 +18,13 @@ end
 create procedure totales
 	as
 		declare @total_invertido money
-		set @total_invertido = select suma
+		set @total_invertido = select sum() from productos 
 	begin
 
 
+select sum(precio_compra) from productos;
 
+select * from productos where nombre like 'palabra%';
 
 
 
