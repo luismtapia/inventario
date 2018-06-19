@@ -3,10 +3,10 @@ create database inventario;
 use inventario;
 
 create table productos(codigo varchar(5) not null,
-					             nombre varchar(30),
+					nombre varchar(30),
 					             descripcion varchar (100),
-										 	 precio_compra money,
-					             precio_venta money,
+										 	precio_compra money,
+					precio_venta money,
 											 existencia int,
 					             constraint PRODUCTOSPK primary key (codigo));
 
@@ -34,12 +34,11 @@ create table ventas(codigo varchar (5),
                     constraint VENTASPK primary key (codigo));
 
 
-
-
-
-
---que paso
-
+create table activos (numero int not null,
+		      nombre varchar(30),
+		      descripcion varchar(200)
+		      constraint ACTIVOSPK primary key (numero,nombre));
+						
 
 
 
