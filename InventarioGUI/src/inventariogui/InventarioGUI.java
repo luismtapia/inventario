@@ -45,7 +45,7 @@ public class InventarioGUI extends Application {
 
         root.setStyle("-fx-background-color: #000000;");
         root.getChildren().addAll(generaEncabezado("Luis"));
-        scene = new Scene(root, 1390, 700);
+        scene = new Scene(root, 1370, 700);
         estacionPrimaria.setTitle("El Guardarropa de Fernanda");
         //estacionPrimaria.getIcons().add(new Image("iconos/logo.png"));
         estacionPrimaria.setResizable(false);
@@ -55,7 +55,7 @@ public class InventarioGUI extends Application {
 
     public VBox generaEncabezado(String usuario){
         VBox vertical_inicio = new VBox();
-        vertical_inicio.setPadding(new Insets(20, 30, 10, 30));
+        vertical_inicio.setPadding(new Insets(10, 30, 10, 30));
         
         border = new BorderPane();
         try {

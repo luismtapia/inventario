@@ -6,6 +6,7 @@
 package inventariogui;
 
 import static inventariogui.SQL.Conexion;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -26,4 +27,18 @@ public class SQL_Consultar {
         }
         return rs;
     }
+    
+    public boolean existencia(int actualizacion_existencia,String codigo) {
+            String query = "update productos set existencia = '"+actualizacion_existencia+"' where codigo = '"+codigo+"'";
+            try {
+            PreparedStatement st =Conexion.prepareStatement(query);
+            st.execute();
+            return true;
+        } catch (Exception e) {
+            System.out.println("ERROR EN SQL en existencia...: "+e);
+            System.out.println(query+"\n");
+        }
+        return false;
+    }
+    
 }

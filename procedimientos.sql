@@ -32,7 +32,24 @@ create trigger totales
 
 drop trigger totales
 
-
+create trigger existenciaCERO
+	on productos for update--pero hasta que se crea ticket venta
+	as
+	begin
+		declare @codigo varchar(15)
+		declare @existencia int
+		set @codigo = (select codigo from inserted)
+		set @existencia = (select existencia from inserted)
+		if @existencia = 0
+			begin
+				print 'elimina'
+				delete from productos where codigo = @codigo
+			end
+		else
+			begin
+				print 'sigues vivo'
+			end
+	end
 
 
 
@@ -55,29 +72,8 @@ begin
 end
 
 
-create procedure totales
-	as
-		declare @total_invertido money
-		set @total_invertido = select suma
-	begin
-
-
-
-
-
-
-/*
-create trigger totales
-		on productos for insert,delete,update
-	as
-		declare @precio_compra money
-		--para insert de inserted
-		set @precio_compra =  select precio_compra from inserted;
-		update
-	begin
-	*/
 
 create table resumen(total_invertido money,
-					ganancia_esperada money,--ya integradios en productos
+					ganancia_esperada money,--ya integradios en productos dejar
 					activo_fijo money,
 					efectivo money)

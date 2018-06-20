@@ -6,3 +6,8 @@ insert into productos
 		('7501058620095','Café','nescafe clasico',150,170,25,null,null);
 
 select * from productos
+
+
+insert into ventas 
+		values()
+			();

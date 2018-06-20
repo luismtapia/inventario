@@ -27,4 +27,16 @@ public class SQL_Crear {
         }
         return false;//Nos indica se se hizo bien la inserción en la base de datos //investigar este comentario
     }
+    
+    public Boolean insertarVenta(int no_ticket,String cliente, double total){
+        try{
+            String query="INSERT INTO ventas (no_ticket, fecha_venta, nombre_cliente, total_a_pagar) values("+no_ticket+", getdate(), '"+cliente+"', "+total+")";
+            PreparedStatement st=Conexion.prepareStatement(query);
+            st.execute();
+            return true;
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return false;//Nos indica se se hizo bien la inserción en la base de datos //investigar este comentario
+    }
 }
