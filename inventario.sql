@@ -10,17 +10,17 @@ create table productos(codigo varchar(15) not null,
 			total_invertido money,
 			ganancia_esperada money,
 			constraint PRODUCTOSPK primary key (codigo));
---drop table productos
 
-create table clientes(nombre_cliente varchar (50) not null,
-			constraint CLIENTESPK primary key (nombre_cliente));
+create table clientes(id_cliente int identity (1,1),
+					nombre_cliente varchar (50) not null,
+					constraint CLIENTESPK primary key (id_cliente));
 
 create table ventas(no_ticket int identity (1,1),
 					fecha_venta date,--datetime
-					nombre_cliente varchar(50),
+					id_cliente int,
 					total_a_pagar money,
                     constraint VENTASPK primary key (no_ticket),
-					constraint VENTASFK1 foreign key (nombre_cliente) references clientes(nombre_cliente));
+					constraint VENTASFK1 foreign key (id_cliente) references clientes(id_cliente));
 
 create table venta_es_de_producto(no_ticket int,
 								codigo varchar(15),
@@ -28,9 +28,13 @@ create table venta_es_de_producto(no_ticket int,
 								precio_venta money,
 								--subtotal money,
 								constraint TICKETSPK primary key (no_ticket,codigo));
-drop table venta_es_de_producto
---****************************arriba ya esta aplicado pequeñas modificaciones a considerar
 
+create table banco(total_invertido money,
+					utilidades_retenidas money,
+					activo_fijo money,
+					efectivo money)
+
+--****************************arriba ya esta aplicado pequeñas modificaciones a considerar
 
 create table apartados(codigo varchar(15),
 					nombre_cliente varchar (50),
@@ -42,10 +46,19 @@ create table apartados(codigo varchar(15),
 					constraint APARTADOSFK1 foreign key (codigo) references productos (codigo),
 					constraint APARTADOSFK2 foreign key (nombre_cliente) references clientes (nombre_cliente));
 
-create table activos (numero int not null,
-					  nombre varchar(30),
-					  descripcion varchar(200)
-					  constraint ACTIVOSPK primary key (numero,nombre));
-						
-create table banco ();
 
+
+
+create table activos (numero int identity(1,1),
+					  nombre varchar(30),
+					  descripcion varchar(200),
+					  costo_compra money,
+					  constraint ACTIVOSPK primary key (numero,nombre));
+
+
+
+
+drop table venta_es_de_producto
+drop table ventas
+drop table clientes
+drop table productos

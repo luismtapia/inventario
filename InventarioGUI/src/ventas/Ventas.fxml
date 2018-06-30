@@ -29,7 +29,8 @@
     <children>
         <HBox spacing="100" alignment="BASELINE_CENTER" >
             <HBox spacing="60" alignment="BASELINE_CENTER" >
-                <TextField onKeyReleased="#handleKeyPressed"  fx:id="bandera" prefHeight="500" /> 
+                <Button onAction="#handleBotones" text="HISTORIAL" fx:id="btn_historial" alignment="BASELINE_CENTER" ><style> -fx-background-color: transparent; -fx-font-size: 13pt;</style></Button>
+                <TextField onKeyReleased="#handleKeyPressed"  fx:id="bandera_nombre" prefHeight="500" /> 
                 <Button onAction="#handleBotones" text="Elegir" fx:id="btn_buscar" alignment="BASELINE_CENTER" ><style> -fx-background-color: transparent; -fx-font-size: 13pt;</style></Button>
                 <ComboBox fx:id="cmb_encontrados" prefWidth="300">
                     <items>
@@ -52,7 +53,7 @@
                     <Label fx:id="lbl_codigo" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label fx:id="lbl2" text="Nombre: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                     <Label fx:id="lbl_nombre" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Label fx:id="lbl3" text="Precio: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label fx:id="lbl3" text="Precio Venta: " prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                     <Label fx:id="lbl_precio" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <Label fx:id="lbl4" text="Cantidad:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                     <TextField fx:id="lbl_cantidad" text="1" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -62,6 +63,8 @@
                     <Label fx:id="lbl_descuento" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                 <Label fx:id="lbl11" text="Descripción:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="8" />
                     <Label fx:id="lbl_descripcion" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label fx:id="lbl18" text="Precio Compra:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                    <Label fx:id="lbl_precio_compra" text="------" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <style>
                     -fx-padding: 10;
                     -fx-border-style: solid inside;
@@ -78,10 +81,16 @@
                     <Label fx:id="lbl6" text="descripción" />
                     <Label fx:id="lbl14" text="cantidad" />
                     <Label fx:id="lbl7" text="precio $"/>
-                    <Label fx:id="lbl12" text="subtotal $"/>
                 </HBox>
                 <ListView fx:id="lista1" prefWidth="500" prefHeight="400" >
                 </ListView>
+                <HBox alignment="BASELINE_RIGHT" >
+                    <Label fx:id="lbl18" text="Ganado $"/>
+                    <Label fx:id="lbl_ganancia" text="0.0"/>
+                    <Label fx:id="lbl12" text="Total a pagar $ "/>
+                    <Label fx:id="lbl_total" text="0.0"/>
+                </HBox>
+                
             </VBox>
         
         <style>

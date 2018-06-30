@@ -1,7 +1,7 @@
 use inventario;
 
 create trigger totales
-		on productos for insert--,delete,update
+		on productos for insert,update--,delete,update
 	as
 	begin
 		declare @codigo varchar(15)
@@ -52,10 +52,22 @@ create trigger existenciaCERO
 	end
 
 
+create trigger transacciones_en_banco
+		on productos for insert,update,delete
+	as
+	begin
+		update banco set total_invertido = (select sum(total_invertido) total from productos)
+	end
+
+create trigger ventas
+		on ventas for insert
+	as
+	begin
+		
+	end
 
 
-
-
+	select * from ventas
 
 
 
@@ -70,10 +82,3 @@ as
 begin
 			--si se inserta un nuevo apartado se tiene que quitar la existencia de productos en la cantidad apartada
 end
-
-
-
-create table resumen(total_invertido money,
-					ganancia_esperada money,--ya integradios en productos dejar
-					activo_fijo money,
-					efectivo money)

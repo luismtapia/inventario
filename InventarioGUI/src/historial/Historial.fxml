@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?language JavaScript?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="historial.HistorialController">
+    <style>
+        -fx-padding: 0;
+        -fx-border-style: solid inside;
+        -fx-border-width: 2;
+        -fx-border-insets: 5;
+        -fx-border-radius: 5;
+        -fx-border-color: #D4AF37;
+        -fx-background-color: #000000;
+    </style>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER">
+            <style> -fx-background-color: #D4AF37; </style><Label text="HISTORIAL"></Label> 
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="60" alignment="CENTER" >
+            <style>
+                -fx-padding: 10;
+                -fx-border-style: solid inside;
+                -fx-border-width: 2;
+                -fx-border-insets: 5;
+                -fx-border-radius: 5;
+                -fx-border-color: #D4AF37;
+                -fx-background-color: #000000;
+            </style>
+            
+            <Label fx:id="lbl1" text="Filtrar por:"/>
+            <Button onAction="#handleBotones" text="PRODUCTO" fx:id="btn_producto" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="CLIENTE" fx:id="btn_cliente"><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="FECHA" fx:id="btn_fecha" ><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER" >
+            <Button onAction="#handleBotones" text="Ver detalles" fx:id="btn_detalles" ><style> -fx-background-color: transparent; </style></Button>
+            <TextField fx:id="txt_producto" />
+            <TextField fx:id="txt_cliente" />
+            <DatePicker fx:id="fecha1" />
+            <DatePicker fx:id="fecha2" />
+            <Button onAction="#handleBotones" text="BUSCAR" fx:id="btn_buscar" ><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER" >
+            <ListView fx:id="lista1" prefHeight="500" prefWidth="600" />
+            </HBox>
+    </children>
+</VBox>

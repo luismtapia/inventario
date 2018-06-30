@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/inventariogui/SQL_Crear.java</file>
+            <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/productos/ProductosController.java</file>
+            <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/ventas/Ventas.fxml</file>
             <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/ventas/VentasController.java</file>
-            <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/inventariogui/InventarioGUI.java</file>
+            <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/inventariogui/SQL_Consultar.java</file>
+            <file>file:/C:/Users/luis_/Documents/GitHub/inventario/InventarioGUI/src/productos/Productos.fxml</file>
         </group>
     </open-files>
 </project-private>

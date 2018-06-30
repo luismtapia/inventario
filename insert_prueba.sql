@@ -11,3 +11,8 @@ select * from productos
 insert into ventas 
 		values()
 			();
+
+
+select * from banco
+insert into banco
+		values ('0','0','0','0')

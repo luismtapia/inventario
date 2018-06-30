@@ -93,10 +93,11 @@ public class InicioController implements Initializable{
             ResultSet rs;
             String total_invertido="",total_ganancia="";
             
-            rs = con_sql.get_SQL("select sum(total_invertido) total from productos");
+            rs = con_sql.get_SQL("select * from banco");
             while(rs.next()){
-                total_invertido = rs.getString("total");}
-            lbl_total_invertido.setText(""+Double.parseDouble(total_invertido));
+                lbl_total_invertido.setText(""+Double.parseDouble(rs.getString("total_invertido")));
+                lbl_efectivo.setText(""+Double.parseDouble(rs.getString("efectivo")));
+            }
             
             rs = con_sql.get_SQL("select sum(ganancia_esperada) total from productos");
             while(rs.next()){
