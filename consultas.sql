@@ -30,12 +30,15 @@ update productos set existencia = '99' where codigo = '7501003301895'
 update productos set existencia = '99' where nombre = 'café'
 update productos set existencia = '99' where nombre = 'agua nestle'
 
+select * from productos order by nombre
 
-
-select * from ventas v inner join venta_es_de_producto vp on v.no_ticket=vp.no_ticket inner join productos p on vp.codigo=p.codigo where nombre = 'ajo'
+select * from ventas v inner join venta_es_de_producto vp on v.no_ticket=vp.no_ticket inner join productos p on vp.codigo=p.codigo inner join clientes c on v.id_cliente = c.id_cliente where nombre like 'ajo'
 
 select * from ventas v inner join clientes c on v.id_cliente = c.id_cliente inner join venta_es_de_producto vp on vp.no_ticket=v.no_ticket inner join productos p on p.codigo=vp.codigo where nombre_cliente = 'anónimo'
 
 --muestra todas las ventas
 select * from ventas v inner join clientes c on v.id_cliente = c.id_cliente inner join venta_es_de_producto vp on vp.no_ticket=v.no_ticket inner join productos p on p.codigo=vp.codigo;
 
+select * from ventas v inner join venta_es_de_producto vp on v.no_ticket=vp.no_ticket inner join clientes c on c.id_cliente = v.id_cliente inner join productos p on p.codigo=vp.codigo where fecha_venta = '2018-06-29' 
+
+select * from ventas v inner join venta_es_de_producto vp on v.no_ticket=vp.no_ticket inner join clientes c on c.id_cliente = v.id_cliente inner join productos p on p.codigo=vp.codigo where fecha_venta between '2018-06-20' and '2018-06-30' 

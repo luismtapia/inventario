@@ -151,6 +151,12 @@ public class ProductosController implements Initializable{
         precio_compra.setText("");
         precio_venta.setText("");
         existencia.setText("");
+        codigo_.setText("");
+        nombre_.setText("");
+        descripcion_.setText("");
+        precio_compra_.setText("");
+        precio_venta_.setText("");
+        existencia_.setText("");
     }
     
     private void busqueda(String like){

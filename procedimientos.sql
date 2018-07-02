@@ -59,19 +59,6 @@ create trigger transacciones_en_banco
 		update banco set total_invertido = (select sum(total_invertido) total from productos)
 	end
 
-create trigger ventas
-		on ventas for insert
-	as
-	begin
-		
-	end
-
-
-	select * from ventas
-
-
-
-
 
 
 

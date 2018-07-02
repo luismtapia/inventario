@@ -84,11 +84,16 @@
                 </HBox>
                 <ListView fx:id="lista1" prefWidth="500" prefHeight="400" >
                 </ListView>
-                <HBox alignment="BASELINE_RIGHT" >
-                    <Label fx:id="lbl18" text="Ganado $"/>
-                    <Label fx:id="lbl_ganancia" text="0.0"/>
-                    <Label fx:id="lbl12" text="Total a pagar $ "/>
-                    <Label fx:id="lbl_total" text="0.0"/>
+                <HBox spacing="30"  alignment="BASELINE_RIGHT" >
+                    <HBox >
+                        <Label fx:id="lbl19" text="Ganado $"/>
+                        <Label fx:id="lbl_ganancia" text="0.0" alignment="BASELINE_RIGHT" />
+                    </HBox>
+                    <HBox>
+                        <Label fx:id="lbl12" text="Total a pagar $ "/>
+                        <Label fx:id="lbl_total" text="0.0" alignment="BASELINE_RIGHT" />
+                    </HBox>
+                    
                 </HBox>
                 
             </VBox>

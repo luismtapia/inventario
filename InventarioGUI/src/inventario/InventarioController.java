@@ -29,7 +29,7 @@ public class InventarioController implements Initializable{
     SQL_Consultar con_sql = new SQL_Consultar();
     String bandera = "";
     @FXML private Button btn_codigo,btn_nombre,btn_todos,btn_buscar, btn_orden_codigo,btn_orden_nombre;
-    @FXML private Label lbl1;
+    @FXML private Label lbl1,lbl2;
     @FXML private TextField txt_codigo,txt_nombre;
     @FXML private ListView lista1;
     @FXML
@@ -46,55 +46,77 @@ public class InventarioController implements Initializable{
                     btn_buscar.setVisible(true);
                     bandera = "codigo";
                 }else
-                    if(event.getSource() == btn_codigo){
+                    if(event.getSource() == btn_todos){
                         txt_nombre.setVisible(false);
                         txt_codigo.setVisible(false);
                         btn_buscar.setVisible(false);
-                        inicio();
+                        inicio("codigo");
+                        bandera = "todos";
                     }else
                         if(event.getSource() == btn_buscar){
                             System.out.println(bandera);
                             if(bandera.equals("nombre")){
-                                por_nombre(txt_nombre.getText());
+                                busqueda(txt_nombre.getText(), bandera);
                             }else
                                 if(bandera.equals("codigo")){
-                                    por_codigo(txt_codigo.getText());
+                                    busqueda(txt_codigo.getText(), bandera);
                                 }
-                        }
+                        }else
+                            if(event.getSource() == btn_orden_codigo){
+                                if(bandera.equals("codigo")){
+                                   ordenar_por(txt_codigo.getText(), bandera, "codigo");
+                                }else
+                                    if(bandera.equals("nombre")){
+                                        ordenar_por(txt_nombre.getText(), bandera, "codigo");
+                                    }else
+                                        inicio("codigo");
+                                
+                            }else
+                                if(event.getSource() == btn_orden_nombre){
+                                    if(bandera.equals("codigo")){
+                                        ordenar_por(txt_codigo.getText(), bandera, "nombre");
+                                     }else
+                                         if(bandera.equals("nombre")){
+                                             ordenar_por(txt_nombre.getText(), bandera, "nombre");
+                                         }else
+                                             inicio("nombre");
+                                }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         conn.Conectar();
         color(Color.web("#D4AF37"));
-        inicio();
-        txt_nombre.setPromptText("Cliente");
-        txt_codigo.setPromptText("Producto");
+        inicio("codigo");
+        txt_nombre.setPromptText("Nombre del producto");
+        txt_codigo.setPromptText("Codigo del producto");
         txt_nombre.setVisible(false);
         txt_codigo.setVisible(false);
         btn_buscar.setVisible(false);
         //imagenes();
     }
-    
+
     private void color(Color color){
         btn_nombre.setTextFill(color);
         btn_codigo.setTextFill(color);
         btn_buscar.setTextFill(color);
         btn_orden_codigo.setTextFill(color);
         btn_orden_nombre.setTextFill(color);
+        btn_todos.setTextFill(color);
         lbl1.setTextFill(color);
+        lbl2.setTextFill(color);
     }
-    
+
     private void imagenes(){
 //        btn_depto_1.setGraphic(new ImageView(new Image("iconos/ropa.png")));
 //        btn_depto_1.setContentDisplay(ContentDisplay.BOTTOM);
 //        btn_depto_2.setGraphic(new ImageView(new Image("iconos/accesorios.png")));
 //        btn_depto_2.setContentDisplay(ContentDisplay.BOTTOM);
     }
-    
-    private void inicio(){
+
+    private void inicio(String orden){
         lista1.getItems().clear();
-        ResultSet rs = con_sql.get_SQL("select * from productos");
+        ResultSet rs = con_sql.get_SQL("select * from productos order by "+orden);
         try {
             while (rs.next()) {
                 Producto nota = new Producto(rs.getString("codigo"), rs.getString("nombre"), rs.getString("descripcion"), rs.getDouble("precio_compra"), rs.getDouble("precio_venta"), rs.getInt("existencia"), rs.getDouble("total_invertido"), rs.getDouble("ganancia_esperada"));
@@ -104,33 +126,31 @@ public class InventarioController implements Initializable{
             System.out.println(e);
         }
     }
-    
-    private void por_codigo(String like){
+
+    private void busqueda(String like, String tabla){
         lista1.getItems().clear();
-        ResultSet rs = con_sql.get_SQL("'"+like+"'");
-        
+        ResultSet rs = con_sql.get_SQL("select * from productos where "+tabla+" like '"+like+"%'");
+
         try {
-            while (rs.next()) {                
-//                Producto nota = new Producto(like, like, like, 0, 0, 0, 0, 0);
-//                    lista1.getItems().add(nota);
+            while (rs.next()) {
+                Producto nota = new Producto(rs.getString("codigo"), rs.getString("nombre"), rs.getString("descripcion"), rs.getDouble("precio_compra"), rs.getDouble("precio_venta"), rs.getInt("existencia"), rs.getDouble("total_invertido"), rs.getDouble("ganancia_esperada"));
+                lista1.getItems().add(nota);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
-    private void por_nombre(String like){
+
+    private void ordenar_por(String like, String tabla, String orden){
         lista1.getItems().clear();
-        ResultSet rs = con_sql.get_SQL("'"+like+"'");
+        ResultSet rs = con_sql.get_SQL("select * from productos where "+tabla+" like '"+like+"%' order by "+orden);
         try {
-            while (rs.next()) {                
-//                VistaHistorial nota = new VistaHistorial(rs.getInt("no_ticket"), rs.getDate("fecha_venta"), rs.getInt("id_cliente"), rs.getDouble("total_a_pagar"), rs.getString("codigo"), rs.getInt("cantidad"), rs.getDouble("precio_venta"), rs.getString("nombre"), rs.getString("descripcion"), rs.getDouble("precio_compra"), rs.getInt("existencia"), rs.getString("nombre_cliente"));
-//                    lista1.getItems().add(nota);
+            while (rs.next()) {
+                Producto nota = new Producto(rs.getString("codigo"), rs.getString("nombre"), rs.getString("descripcion"), rs.getDouble("precio_compra"), rs.getDouble("precio_venta"), rs.getInt("existencia"), rs.getDouble("total_invertido"), rs.getDouble("ganancia_esperada"));
+                lista1.getItems().add(nota);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
-    
 }

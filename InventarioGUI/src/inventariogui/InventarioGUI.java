@@ -137,19 +137,12 @@ public class InventarioGUI extends Application {
         //btnagregar_productos.setStyle("-fx-background-color: transparent;");
         btn_salir.setOnAction(handleBotones);
         
-        
-
-
         topp.getChildren().addAll(nombre_usuario,btn_inicio,btn_ventas,btn_inventario,btnagregar_productos,btn_activo,btn_salir);
         return topp;
     }
 
     private void inicializaBaseDatos(){
-        //probar coneccion
         conn.Conectar();
-        //mensaje de alerta
-        //conn.closeConnection();
-        
     }
 
     public static void main(String[] args) {
@@ -250,4 +243,5 @@ public class InventarioGUI extends Application {
             System.out.println(e);
         }
     }
+    
 }

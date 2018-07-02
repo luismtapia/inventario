@@ -43,6 +43,14 @@
     </children>
     
     <children>
+        <HBox alignment="BASELINE_LEFT" >
+            <Button onAction="#handleBotones" text="diario" fx:id="btn_diario" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="semanal" fx:id="btn_semanal" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="periodo" fx:id="btn_periodo" ><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+    
+    <children>
         <HBox spacing="10" alignment="BASELINE_CENTER" >
             <Button onAction="#handleBotones" text="Ver detalles" fx:id="btn_detalles" ><style> -fx-background-color: transparent; </style></Button>
             <TextField fx:id="txt_producto" />
@@ -57,5 +65,20 @@
         <HBox spacing="10" alignment="BASELINE_CENTER" >
             <ListView fx:id="lista1" prefHeight="500" prefWidth="600" />
             </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="40" alignment="BASELINE_RIGHT" >
+            <HBox spacing="5" >
+                <Label text="Total Ventas" fx:id="lbl2" />
+                <Label text="0" fx:id="total_ventas" />
+            </HBox>
+            <HBox spacing="5" >
+                <Label text="Total $" fx:id="lbl3" />
+                <Label text="0.0" fx:id="total" />
+            </HBox>
+            
+            <style>-fx-padding: 10;</style>
+        </HBox>
     </children>
 </VBox>

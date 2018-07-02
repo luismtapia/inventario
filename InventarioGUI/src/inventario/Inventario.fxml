@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventario.InventarioController">
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="450.0" prefWidth="600.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventario.InventarioController">
     <style>
         -fx-padding: 0;
         -fx-border-style: solid inside;
@@ -39,10 +39,14 @@
             <Button onAction="#handleBotones" text="CODIGO" fx:id="btn_codigo" ><style> -fx-background-color: transparent; </style></Button>
             <Button onAction="#handleBotones" text="NOMBRE" fx:id="btn_nombre"><style> -fx-background-color: transparent; </style></Button>
             <Button onAction="#handleBotones" text="TODOS" fx:id="btn_todos"><style> -fx-background-color: transparent; </style></Button>
-            <Label fx:id="lbl2" text="Ordenar por:"/>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox alignment="CENTER_RIGHT" spacing="60" >
+            <Label fx:id="lbl2" text="Ordenar por:" alignment="BASELINE_RIGHT" />
             <Button onAction="#handleBotones" text="codigo" fx:id="btn_orden_codigo" ><style> -fx-background-color: transparent; </style></Button>
             <Button onAction="#handleBotones" text="nombre" fx:id="btn_orden_nombre"><style> -fx-background-color: transparent; </style></Button>
-            
         </HBox>
     </children>
     
@@ -56,7 +60,7 @@
     
     <children>
         <HBox spacing="10" alignment="BASELINE_CENTER" >
-            <ListView fx:id="lista1" prefHeight="600" prefWidth="600" />
+            <ListView fx:id="lista1" prefHeight="600" prefWidth="1000" />
         </HBox>
     </children>
 </VBox>

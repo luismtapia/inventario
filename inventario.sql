@@ -16,7 +16,7 @@ create table clientes(id_cliente int identity (1,1),
 					constraint CLIENTESPK primary key (id_cliente));
 
 create table ventas(no_ticket int identity (1,1),
-					fecha_venta date,--datetime
+					fecha_venta date,
 					id_cliente int,
 					total_a_pagar money,
                     constraint VENTASPK primary key (no_ticket),
@@ -46,9 +46,6 @@ create table apartados(codigo varchar(15),
 					constraint APARTADOSFK1 foreign key (codigo) references productos (codigo),
 					constraint APARTADOSFK2 foreign key (nombre_cliente) references clientes (nombre_cliente));
 
-
-
-
 create table activos (numero int identity(1,1),
 					  nombre varchar(30),
 					  descripcion varchar(200),
@@ -57,7 +54,7 @@ create table activos (numero int identity(1,1),
 
 
 
-
+drop table banco
 drop table venta_es_de_producto
 drop table ventas
 drop table clientes

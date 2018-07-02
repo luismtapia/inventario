@@ -40,7 +40,7 @@ public class VentasController implements Initializable{
     @FXML private TextField bandera_nombre,cliente,lbl_cantidad;
     @FXML private Button btn_buscar,btn_marcar,btn_cobrar,btn_quitar,btn_historial;
     @FXML private ComboBox cmb_encontrados;
-    @FXML private Label lbl1,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11,lbl12,lbl13,lbl14,lbl18,lbl_folio;
+    @FXML private Label lbl1,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11,lbl12,lbl13,lbl14,lbl18,lbl19,lbl_folio;
     @FXML private Label lbl_codigo,lbl_nombre,lbl_precio,lbl_existencia,lbl_descripcion,lbl_total,lbl_ganancia,lbl_precio_compra;
     @FXML private ListView lista1;
     @FXML private ToggleGroup myToggleGroup;
@@ -48,12 +48,8 @@ public class VentasController implements Initializable{
     
     @FXML
     private void handleKeyPressed(KeyEvent ke){
-        String buscar;
-        buscar=bandera_nombre.getText();
-        llenarcombobox(buscar);
-        
-        //lbl_codigo.setText(buscar);
-        busqueda(buscar);
+        llenarcombobox(bandera_nombre.getText());
+        busqueda(bandera_nombre.getText());
         //System.out.println("Key Pressed: " + ke.getCode());
     }
     
@@ -115,6 +111,7 @@ public class VentasController implements Initializable{
                 tot = ant - tot;
                 lbl_total.setText(String.valueOf(tot));
                 
+                lbl_ganancia.setText("0.0");
                 busqueda(seleccion.getNombre());
                 lista1.getItems().remove(seleccion);
             }
@@ -153,8 +150,9 @@ public class VentasController implements Initializable{
             for (VistaVenta recorrido : sval) {
                 con_sql_crear.insertarVenta_es_de_producto(Integer.parseInt(lbl_folio.getText()), recorrido.getCodigo(), recorrido.getCantidad(), recorrido.getPrecio_venta());
             }
-            double total_ganado = getEfectivo();
-            total_ganado = total_ganado + Double.parseDouble(lbl_total.getText());
+            double total_ganado;
+            total_ganado = getEfectivo() + Double.parseDouble(lbl_total.getText());
+            
             con_sql.get_SQL("update banco set efectivo = '"+total_ganado+"'");
             double utiliddes = getUtilidades();
             utiliddes = utiliddes + Double.parseDouble(lbl_ganancia.getText());
@@ -168,7 +166,8 @@ public class VentasController implements Initializable{
             lista1.getItems().clear();
             lbl_ganancia.setText("0.0");
             lbl_total.setText("0.0");
-            
+            ticket();
+            limpiar();
         } catch (Exception e) {System.out.println("error al cobrar"+e);}
             
     }
@@ -221,7 +220,7 @@ public class VentasController implements Initializable{
     
     private void llenarcombobox(String like){
         cmb_encontrados.getItems().clear();
-        cmb_encontrados.setPromptText("PRODUCTOS");
+        cmb_encontrados.setPromptText("Sin resultados");
         ResultSet rs = con_sql.get_SQL("select * from productos where nombre like '"+like+"%'");
         try {
             while (rs.next()) {                
@@ -249,6 +248,7 @@ public class VentasController implements Initializable{
         lbl13.setTextFill(color);
         lbl14.setTextFill(color);
         lbl18.setTextFill(color);
+        lbl19.setTextFill(color);
         btn_historial.setTextFill(color);
         btn_buscar.setTextFill(color);
         btn_marcar.setTextFill(color);
@@ -272,6 +272,7 @@ public class VentasController implements Initializable{
     }
     
     private void busqueda(String like){
+        boolean interruptor=false;
         ResultSet rs = con_sql.get_SQL("select * from productos where nombre like '"+like+"%'");
         try {
             while (rs.next()) {                
@@ -281,6 +282,10 @@ public class VentasController implements Initializable{
                 lbl_precio.setText(""+Double.parseDouble(rs.getString("precio_venta")));
                 lbl_existencia.setText(""+rs.getInt("existencia"));
                 lbl_precio_compra.setText(""+rs.getDouble("precio_compra"));
+                interruptor=true;
+            }
+            if(!interruptor){
+                limpiar();
             }
         } catch (SQLException | NumberFormatException e) {
             System.out.println(e);
@@ -378,12 +383,21 @@ public class VentasController implements Initializable{
             Stage stage = new Stage();
             stage.setScene(scene);
             //stageActualizar.getIcons().add(new Image("iconos/IconosEmpleado/actualizar_empleado.png"));
-            stage.setTitle("Agregar Nuevo Producto");
+            stage.setTitle("Historial");
             //stage.setFullScreen(true);
             stage.show();
             
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+    
+    private void limpiar(){
+        lbl_codigo.setText("");
+        lbl_nombre.setText("");
+        lbl_descripcion.setText("");
+        lbl_precio.setText("");
+        lbl_existencia.setText("");
+        lbl_precio_compra.setText("");
     }
 }

@@ -96,7 +96,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return  codigo + "\t" + nombre + ", descripcion=" + descripcion + ", precio_compra=" + precio_compra + ", precio_venta=" + precio_venta + ", existencia=" + existencia + "\n total_invertido=" + total_invertido + ", ganancia_esperada=" + ganancia_esperada;
+        return  codigo + "\t" + descripcion + "\t existencia=" + existencia +"\t precio compra" + precio_compra + "\tprecio venta=" + precio_venta;
     }
     
     
