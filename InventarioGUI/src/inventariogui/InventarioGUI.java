@@ -29,7 +29,7 @@ public class InventarioGUI extends Application {
     private final SQL conn=new SQL();
     private BorderPane border;
 
-    Button btn_inicio,btn_ventas,btn_inventario,btn_apartado,btnagregar_productos;
+    Button btn_inicio,btn_ventas,btn_inventario,btn_apartado,btnagregar_productos,btn_activo,btn_salir;
 
     @Override
     public void start(Stage primaryStage) {
@@ -41,22 +41,22 @@ public class InventarioGUI extends Application {
     private void initGUI(){
         StackPane root = new StackPane();
         Scene scene;
-        //inicializaBaseDatos();
+        inicializaBaseDatos();
 
         root.setStyle("-fx-background-color: #000000;");
         root.getChildren().addAll(generaEncabezado("Luis"));
-        scene = new Scene(root, 1390, 700);
+        scene = new Scene(root, 1370, 700);
         estacionPrimaria.setTitle("El Guardarropa de Fernanda");
         //estacionPrimaria.getIcons().add(new Image("iconos/logo.png"));
         estacionPrimaria.setResizable(false);
         estacionPrimaria.setScene(scene);
+        estacionPrimaria.setFullScreen(true);
         estacionPrimaria.show();
     }
 
-    //ENCABEZADO
     public VBox generaEncabezado(String usuario){
         VBox vertical_inicio = new VBox();
-        vertical_inicio.setPadding(new Insets(20, 30, 10, 30));
+        vertical_inicio.setPadding(new Insets(10, 30, 10, 30));
         
         border = new BorderPane();
         try {
@@ -82,7 +82,7 @@ public class InventarioGUI extends Application {
         btn_inicio.setPrefSize(150, 30);
         //btnagregar_productos.setContentDisplay(ContentDisplay.TOP);
         btn_inicio.setTextFill(Color.web("#D4AF37"));
-        btn_inicio.setStyle("-fx-padding: 10 20 20 20;"
+        btn_inicio.setStyle("-fx-padding: 10 20 10 20;"
                 + "-fx-background-color: linear-gradient(#262626,#000000);"
                 + "-fx-font-size: 15pt;"
                 + "-fx-border-color: #D4AF37;"
@@ -121,15 +121,29 @@ public class InventarioGUI extends Application {
         //btnagregar_productos.setStyle("-fx-background-color: transparent;");
         btnagregar_productos.setOnAction(handleBotones);
         
-        topp.getChildren().addAll(nombre_usuario,btn_inicio,btn_ventas,btn_inventario,btnagregar_productos);
+        btn_activo = new Button("Activo fijo");
+        btn_activo.setPrefSize(150, 30);
+        //btnagregar_productos.setContentDisplay(ContentDisplay.TOP);
+        btn_activo.setTextFill(Color.web("#D4AF37"));
+        btn_activo.setStyle("-fx-background-color: linear-gradient(#262626,#000000);");
+        //btnagregar_productos.setStyle("-fx-background-color: transparent;");
+        btn_activo.setOnAction(handleBotones);
+        
+        btn_salir = new Button("Salir");
+        btn_salir.setPrefSize(150, 30);
+        //btnagregar_productos.setContentDisplay(ContentDisplay.TOP);
+        btn_salir.setTextFill(Color.web("#D4AF37"));
+        btn_salir.setStyle("-fx-background-color: linear-gradient(#262626,#000000);");
+        //btnagregar_productos.setStyle("-fx-background-color: transparent;");
+        btn_salir.setOnAction(handleBotones);
+        
+        topp.getChildren().addAll(nombre_usuario,btn_inicio,btn_ventas,btn_inventario,btnagregar_productos,btn_activo,btn_salir);
         return topp;
     }
-    
 
     private void inicializaBaseDatos(){
         conn.Conectar();
     }
-
 
     public static void main(String[] args) {
         launch(args);
@@ -155,13 +169,23 @@ public class InventarioGUI extends Application {
                     break;
                 case "Inventario":
                     try {
-                        //Parent root = FXMLLoader.load(getClass().getResource("/inicio/Inicio.fxml"));
-                        //border.setCenter(root);
+                        Parent root = FXMLLoader.load(getClass().getResource("/inventario/Inventario.fxml"));
+                        border.setCenter(root);
                     } catch (Exception e) {System.err.println(""+e);}
                     break;
                 case "Nuevo Producto":
                     try {
                         Nuevo_Producto();
+                    } catch (Exception e) {System.err.println(""+e);}
+                    break;
+                case "Activo fijo":
+                    try {
+                        Activo_fijo();
+                    } catch (Exception e) {System.err.println(""+e);}
+                    break;
+                case "Salir":
+                    try {
+                        System.exit(0);
                     } catch (Exception e) {System.err.println(""+e);}
                     break;
                 default:
@@ -194,4 +218,30 @@ public class InventarioGUI extends Application {
             System.out.println(e);
         }
     }
+    
+    private void Activo_fijo(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/activofijo/Activos.fxml"));
+            StackPane pane = new StackPane();
+            
+            //Coloca una imagen de fondo
+//            Image url = new Image("imagenes/54.gif");
+//            ImageView image = new ImageView();
+//            image.setFitWidth(900);
+//            image.setFitHeight(700);
+//            image.setImage(url);
+            
+            pane.getChildren().addAll(/*image,*/root);
+            Scene sceneActualizar = new Scene(pane, 900, 600);
+            Stage stageActualizar = new Stage();
+            stageActualizar.setScene(sceneActualizar);
+            //stageActualizar.getIcons().add(new Image("iconos/IconosEmpleado/actualizar_empleado.png"));
+            stageActualizar.setTitle("Activos");
+            stageActualizar.show();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
 }

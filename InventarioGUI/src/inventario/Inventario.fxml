@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?language JavaScript?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<VBox fx:id="vbox" layoutX="10.0" layoutY="10.0" prefHeight="450.0" prefWidth="600.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventario.InventarioController">
+    <style>
+        -fx-padding: 0;
+        -fx-border-style: solid inside;
+        -fx-border-width: 2;
+        -fx-border-insets: 5;
+        -fx-border-radius: 5;
+        -fx-border-color: #D4AF37;
+        -fx-background-color: #000000;
+    </style>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER">
+            <style> -fx-background-color: #D4AF37; -fx-font-size: 13pt;</style><Label text="INVENTARIO"></Label> 
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="60" alignment="CENTER" >
+            <style>
+                -fx-padding: 10;
+                -fx-border-style: solid inside;
+                -fx-border-width: 2;
+                -fx-border-insets: 5;
+                -fx-border-radius: 5;
+                -fx-border-color: #D4AF37;
+                -fx-background-color: #000000;
+            </style>
+            
+            <Label fx:id="lbl1" text="Filtrar por:"/>
+            <Button onAction="#handleBotones" text="CODIGO" fx:id="btn_codigo" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="NOMBRE" fx:id="btn_nombre"><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="TODOS" fx:id="btn_todos"><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox alignment="CENTER_RIGHT" spacing="60" >
+            <Label fx:id="lbl2" text="Ordenar por:" alignment="BASELINE_RIGHT" />
+            <Button onAction="#handleBotones" text="codigo" fx:id="btn_orden_codigo" ><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="nombre" fx:id="btn_orden_nombre"><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER" >
+            <TextField fx:id="txt_codigo" />
+            <TextField fx:id="txt_nombre" />
+            <Button onAction="#handleBotones" text="BUSCAR" fx:id="btn_buscar" ><style> -fx-background-color: transparent; </style></Button>
+        </HBox>
+    </children>
+    
+    <children>
+        <HBox spacing="10" alignment="BASELINE_CENTER" >
+            <ListView fx:id="lista1" prefHeight="600" prefWidth="1000" />
+        </HBox>
+    </children>
+</VBox>

@@ -12,14 +12,14 @@ import java.util.logging.Logger;
  */
 public class SQL {
     public static Connection Conexion;
-    private final String usuario = "fernanda";
-    private final String contraseña = "123";
-    private final String dbnombre = "FERNANDA";
+    private final String usuario = "administrador";
+    private final String contraseña = "luistapia";
+    private final String dbnombre = "inventario";
 
     public void Conectar(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");        //CARGA EL DRIVER
-            String connectionUrl = "jdbc:sqlserver://TaRo:1433;databaseName=FERNANDA";
+            String connectionUrl = "jdbc:sqlserver://TaRo:1433;databaseName=inventario";
             Conexion = DriverManager.getConnection(connectionUrl,usuario,contraseña);
             System.out.print("Conectado. ");
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");

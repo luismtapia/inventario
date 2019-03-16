@@ -42,7 +42,7 @@
         <VBox spacing="10" alignment="CENTER" >
             <GridPane alignment="BASELINE_CENTER"  AnchorPane.topAnchor="30" AnchorPane.leftAnchor="50"  AnchorPane.rightAnchor="5" AnchorPane.bottomAnchor="15" hgap="10" vgap="10"  prefWidth="400" prefHeight="600">
                 <Label fx:id="lbl1" text="Codigo:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                    <TextField fx:id="codigo" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField onKeyReleased="#handleKeyPressed" fx:id="codigo" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label fx:id="lbl2" text="Nombre:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                     <TextField fx:id="nombre" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label fx:id="lbl3" text="Descripción:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
@@ -54,9 +54,27 @@
                 <Label fx:id="lbl7" text="Existencia:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
                     <TextField fx:id="existencia" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
             </GridPane>
-            
         </VBox>
     </children> 
+    
+    <children>
+        <HBox spacing="5" alignment="BASELINE_CENTER" >
+            <GridPane alignment="BASELINE_CENTER"  AnchorPane.topAnchor="30" AnchorPane.leftAnchor="50"  AnchorPane.rightAnchor="5" AnchorPane.bottomAnchor="15" hgap="10" vgap="10"  prefWidth="400" prefHeight="600">
+                <Label fx:id="lbl8" text="Codigo:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Label fx:id="codigo_" text="----" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="lbl9" text="Nombre:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Label fx:id="nombre_" text="----" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="lbl10" text="Descripción:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <Label fx:id="descripcion_" text="----" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label fx:id="lbl11" text="Precio de compra:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <Label fx:id="precio_compra_" text="----" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Label fx:id="lbl12" text="Precio de venta:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <Label fx:id="precio_venta_" text="----" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <Label fx:id="lbl13" text="Existencia:" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="existencia_" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            </GridPane>
+        </HBox>  
+    </children>
     
     <children>
         <HBox spacing="10" alignment="BASELINE_CENTER" >
@@ -71,6 +89,8 @@
             </style>
             <Button onAction="#handleBotones" text="GUARDAR" fx:id="btn_guardar" ><style> -fx-background-color: transparent; </style></Button>
             <Button onAction="#handleBotones" text="CANCELAR" fx:id="btn_cancelar"><style> -fx-background-color: transparent; </style></Button>
+            <Button onAction="#handleBotones" text="ACTUALIZAR" fx:id="btn_actualizar"><style> -fx-background-color: transparent; </style></Button>
+
         </HBox>
     </children>
 </VBox>
